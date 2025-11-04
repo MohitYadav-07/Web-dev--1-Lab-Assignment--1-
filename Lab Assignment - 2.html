@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #195bcf;
+      --background: #f8fafc;
+      --card-bg: #fff;
+      --table-header-bg: #195bcf;
+      --table-header-color: #fff;
+      --border: #195bcf;
+      --form-border: #195bcf;
+    }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: var(--background);
+      margin: 0;
+      color: #222;
+    }
+    header {
+      background-color: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 21px 0 6px 0;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 4px 0;
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+    }
+    nav a {
+      background-color:var(--primary);
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+     
+    }
+    nav a:hover {
+      text-decoration: underline;
+     
+    }
+    h1 {
+      background-color: var(--primary);
+      margin-top: 0px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section {
+      background: transparent;
+      margin: 32px 0;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin: 16px 0 14px 0;
+      color: black
+    }
+    .profile-photo {
+      display: block;
+      margin: 0 auto 16px auto;
+      border-radius: 50%;
+      background: #e6efff;
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      box-shadow: 0 2px 12px rgba(50,80,170,0.08);
+    }
+    .section-box {
+      background: var(--card-bg);
+      padding: 22px;
+      margin: 0 auto 24px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(50,80,170,0.07);
+      max-width: 520px;
+      text-align: center;
+    }
+    hr {
+      margin: 32px 0 22px 0;
+      border: none;
+      border-top: 1.5px solid #ccc;
+    }
+    table {
+      width: 100%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+    th {
+      background: var(--table-header-bg);
+      color: var(--table-header-color);
+      padding: 14px;
+      font-weight: 600;
+      border: 1.2px solid var(--border);
+    }
+    td {
+      background: var(--card-bg);
+      border: 1.2px solid var(--border);
+      padding: 10px;
+      color: #222;
+    }
+    .projects-list {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 1px 5px #eaeaea;
+      border: 1.2px solid #eaeaea;
+      padding: 14px 18px;
+      min-width: 300px;
+      max-width: 540px;
+      text-align: center;
+      margin-bottom: 0;
+      font-size: 1em;
+    }
+    .project-card strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: black;
+    }
+    form {
+      margin: 0 auto;
+      max-width: 480px;
+    }
+    form label {
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      font-weight: 600;
+      text-align: left;
+      color: var(--primary);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 7px 8px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1.5px solid var(--form-border);
+      font-family: inherit;
+      font-size: 1em;
+      box-sizing: border-box;
+      background: #f5f7fc;
+    }
+    form button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.1em;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    form button:hover {
+      background: #09379a;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 32px;
+      font-weight: 700;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(25,91,207,0.12);
+      cursor: pointer;
+      font-size: 1em;
+      display: none;
+      z-index: 99;
+    }
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) {
+      .profile-photo { width: 110px; height: 110px; }
+      .section-box { padding: 12px; }
+      nav ul { gap: 8px; }
+      main { padding: 0 3vw;}
+      table th, table td { padding: 8px; font-size: 0.95em; }
+      .project-card { min-width: unset; font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+  <header>My Portfolio</header>
+  
+    <h1> 
+       <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#Technical-skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </h1>
+  </header>
+  <main id="main-content">
+    <section id="about">
+      <h2>About Me</h2>
+      <!-- Use your actual image path below. For demo purposes, you may use a representative illustration file -->
+      <img src="MY IMAGE.jpg" alt="Profile photo of Mohit Yadav" class="profile-photo"/>
+      <p>"Hello!" I am Mohit Yadav, a first-year Bachelor of Technology student specializing in Computer Science and Engineering (AI & ML) at KRMU.
+      I am passionate about learning core engineering concepts and developing practical skills through hands-on projects and coursework. This portfolio showcases my academic journey, projects, and skills acquired so far, including programming, problem-solving.</p>
+    </section>
+    <hr>
+    <section id="Technical-skills">
+      <h2>My Skills</h2>
+      <table>
+        <tr>
+          <th>Skill</th>
+          <th>Level</th>
+        </tr>
+        <tr>
+          <td>HTML</td>
+          <td>Advanced</td>
+        </tr>
+        <tr>
+          <td>Python</td>
+          <td>Advanced</td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+          <td>Intermediate</td>
+        </tr>
+      </table>
+    </section>
+    <hr>
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects-list">
+        <div class="project-card">
+          <strong>Project 1</strong>
+          <span>Simple Interest Calculator: A simple HTML & CSS webpage.</span>
+        </div>
+        <div class="project-card">
+          <strong>Project 2</strong>
+          <span>HTML Table Example Page: Another awesome mini project.</span>
+        </div>
+        <div class="project-card">
+          <strong>Project 3</strong>
+          <span>Razorpay Clone Website: Razorpay structural design.</span>
+        </div>
+        <div class="project-card">
+          <strong>Project 4</strong>
+          <span>Tutor Meeting Website: Student-teacher meeting scheduler.</span>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Your message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <button id="backToTop">↑ Back to Top</button>
+  <footer>
+    <p>&copy; 2025 Mohit Yadav. All Rights Reserved.</p>
+  </footer>
+  <script>
+    // Show/hide back-to-top button on scroll
+    const btn = document.getElementById('backToTop');
+    window.onscroll = function() {
+      btn.style.display = (window.scrollY > 250) ? "block" : "none";
+    };
+    btn.onclick = function() {
+      window.scrollTo({top: 0, behavior: "smooth"});
+    };
+  </script>
+</body>
+</html>
