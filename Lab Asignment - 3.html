@@ -1,0 +1,339 @@
+<!-- Updated Responsive Portfolio Website with Flexbox, Grid, Animations -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohit Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #195bcf;
+    --secondary: #0e2f75;
+    --background: #f5f8ff;
+    --card-bg: #ffffff;
+    --text-dark: #222;
+    --accent: #ff8f2f;
+    --transition: 0.3s ease;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    line-height: 1.85;
+    font-size: 1.05rem;
+  }
+
+  /* -------------------------------------------------- */
+  /* HEADER */
+  header {
+    width: 100%;
+    padding: 1.2rem 4vw;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  nav a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  /* -------------------------------------------------- */
+  /* HERO SECTION */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7rem 10vw;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-content {
+    flex: 1 1 400px;
+  }
+
+  .hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+
+  .animated-text {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary);
+    animation: colorChange 3s infinite alternate;
+  }
+
+
+  .hero img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: var(--transition);
+  }
+
+  .hero img:hover {
+    transform: scale(1.05);
+  }
+
+  /* -------------------------------------------------- */
+  /* ABOUT */
+  section {
+    padding: 6rem 10vw;
+    text-align: center;
+  }
+
+  h2.section-title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+
+  /* -------------------------------------------------- */
+  /* SKILLS (GRID) */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .skill-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: var(--transition);
+  }
+
+  .skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  /* -------------------------------------------------- */
+  /* PROJECTS (GRID) */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: var(--transition);
+  }
+
+  .project-card:hover {
+    transform: scale(1.03);
+  }
+
+  /* -------------------------------------------------- */
+  /* CONTACT FORM */
+  form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input, textarea {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--primary);
+    background: #eef3ff;
+  }
+
+  button {
+    padding: 0.9rem;
+    background: var(--primary);
+    border: none;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  button:hover {
+    background: var(--secondary);
+    transform: translateY(-4px);
+  }
+
+  /* -------------------------------------------------- */
+  /* FOOTER */
+  footer {
+    background: var(--primary);
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  /* -------------------------------------------------- */
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 220px;
+      height: 220px;
+    }
+  }
+  #backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  #backToTop:hover {
+    transform: translateY(-6px) scale(1.1);
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Portfolio</h1>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h2>Hi, I'm Mohit Yadav</h2>
+    <p class="animated-text">AI & ML Enthusiast | Frontend Learner</p>
+    <p>I love building creative web pages and learning modern development tools.</p>
+  </div>
+
+  <img src="MY IMAGE.jpg" alt="Profile" />
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p>I am a first-year B.Tech CSE (AI & ML) student at KRMU. Passionate about coding, problem-solving, and building real-world projects.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">HTML – Advanced</div>
+    <div class="skill-card">CSS – Intermediate</div>
+    <div class="skill-card">Python – Advanced</div>
+    <div class="skill-card">JavaScript – Beginner</div>
+    <div class="skill-card">Git & GitHub – Beginner</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="project-grid">
+    <div class="project-card"><strong>Simple Interest Calculator</strong>HTML + CSS tool.</div>
+    <div class="project-card"><strong>HTML Table Page</strong>Stylish data table layout.</div>
+    <div class="project-card"><strong>Razorpay Clone</strong>UI structure implementation.</div>
+    <div class="project-card"><strong>Tutor Meeting Scheduler</strong>Student–teacher interface layout.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Mohit Yadav. All Rights Reserved.
+</footer>
+
+  <button id="backToTop">↑</button>
+
+<script>
+  const topBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      topBtn.style.opacity = '1';
+      topBtn.style.pointerEvents = 'auto';
+    } else {
+      topBtn.style.opacity = '0';
+      topBtn.style.pointerEvents = 'none';
+    }
+  });
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
